@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@layout/fragment_home"
+    app:startDestination="@id/fragmentHome"
     tools:ignore="UnusedNavigation">
 
     <fragment
         android:id="@+id/fragmentHome"
+        android:name="com.github.fatemehmsp.covid_19tracker.HomeFragment"
         android:label="@string/fragment_home"
         tools:layout="@layout/fragment_home"
         />
