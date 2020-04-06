@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/mainTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textSize="30sp"
+        android:text="@string/live_report"
+        />
+
+    <ProgressBar
+        android:id="@+id/mainProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:progress="10"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mainList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/mainTitle"
+        android:layout_above="@id/mainProgressHorizontal"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:scrollbars="none"
+        tools:itemCount="10"
+        tools:listitem="@layout/row_country_list"
+        />
+
+    <ProgressBar
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:id="@+id/mainProgressHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        android:progress="100"
+        />
+
+</RelativeLayout>
