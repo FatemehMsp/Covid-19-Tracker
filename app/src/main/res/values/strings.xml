@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Covid-19 Tracker</string>
     <string name="live_report">Live Report</string>
+    <string name="fragment_home">fragmentHome</string>
 </resources>
