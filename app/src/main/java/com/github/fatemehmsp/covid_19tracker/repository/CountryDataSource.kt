@@ -2,6 +2,7 @@ package com.github.fatemehmsp.covid_19tracker.repository
 
 import android.util.Log
 import androidx.paging.PageKeyedDataSource
+import com.github.fatemehmsp.covid_19tracker.di.CoroutineScropeIO
 import com.github.fatemehmsp.covid_19tracker.model.CountryModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -12,7 +13,7 @@ import javax.inject.Inject
  */
 class CountryDataSource @Inject constructor(
     private val countryRepositoryImp: CountryRepositoryImp,
-    private val scope: CoroutineScope
+    @CoroutineScropeIO private val scope: CoroutineScope
 ) : PageKeyedDataSource<Int, CountryModel>() {
     override fun loadInitial(
         params: LoadInitialParams<Int>,
@@ -36,6 +37,7 @@ class CountryDataSource @Inject constructor(
 
     private fun fetchData(page: Int, callback: (List<CountryModel>) -> Unit) {
         scope.launch {
+            Log.e("123456asdf", "check rest")
             when (val response = countryRepositoryImp.getAllCountry(
                 page,
                 LIMIT

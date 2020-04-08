@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("/api/v1/cases/countries-search")
-    fun getCountryList(
+    suspend fun getCountryList(
         @Query("limit") limit: Int,
         @Query("page") page: Int
     ): Response<ApiResponse>

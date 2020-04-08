@@ -86,7 +86,7 @@ object Network {
 object MoshiLibs {
     private object Versions {
         const val moshiVersion = "1.9.2"
-        const val retrofitVersion = "2.6.2"
+        const val retrofitVersion = "2.8.1"
         const val koshiVersion = "2.2.3"
     }
     //moshi

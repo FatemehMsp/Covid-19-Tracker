@@ -1,10 +1,12 @@
 package com.github.fatemehmsp.covid_19tracker.viewModel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
+import com.github.fatemehmsp.covid_19tracker.di.CoroutineScropeIO
 import com.github.fatemehmsp.covid_19tracker.model.CountryModel
 import com.github.fatemehmsp.covid_19tracker.repository.CountryDataSource
 import com.github.fatemehmsp.covid_19tracker.repository.CountryDataSourceFactory
@@ -17,7 +19,7 @@ import javax.inject.Inject
  */
 class HomeViewModel @Inject constructor(
     private val countryDataSourceFactory: CountryDataSourceFactory
-    , private val scope: CoroutineScope
+    , @CoroutineScropeIO private val scope: CoroutineScope
 ) :
     ViewModel() {
 
@@ -27,16 +29,17 @@ class HomeViewModel @Inject constructor(
     val loadingProgressBar: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>(false) }
 
 
-    val pagedListConfig = PagedList.Config.Builder()
-        .setEnablePlaceholders(true)
-        .setPageSize(CountryDataSource.LIMIT)
-        .build()
-
-    init {
+/*    init {
+        Log.i(TAG,"startttttttt")
         getData()
-    }
+    }*/
 
-    private fun getData() {
+    fun getData() {
+        Log.i("123456asd", "startttttttt")
+        val pagedListConfig = PagedList.Config.Builder()
+            .setEnablePlaceholders(true)
+            .setPageSize(CountryDataSource.LIMIT)
+            .build()
         countries = LivePagedListBuilder(countryDataSourceFactory, pagedListConfig)
             .build()
     }

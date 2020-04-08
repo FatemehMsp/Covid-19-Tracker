@@ -1,5 +1,6 @@
 package com.github.fatemehmsp.covid_19tracker.repository
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import com.github.fatemehmsp.covid_19tracker.model.CountryModel
@@ -14,6 +15,7 @@ class CountryDataSourceFactory @Inject constructor(private val countryDataSource
     val countryDataSourceLiveData: MutableLiveData<CountryDataSource> by lazy { MutableLiveData<CountryDataSource>() }
 
     override fun create(): DataSource<Int, CountryModel> {
+        Log.e("123456asdf", "check rest")
         countryDataSourceLiveData.postValue(countryDataSource)
         return countryDataSource
     }

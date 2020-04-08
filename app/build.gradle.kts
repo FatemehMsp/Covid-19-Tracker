@@ -49,6 +49,7 @@ dependencies {
     implementation(Support.recyclerView)
 
     implementation(Kotlin.coroutines)
+    implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0")
 
     implementation(Ui.navigationFragment)
     implementation(Ui.navigationUi)
