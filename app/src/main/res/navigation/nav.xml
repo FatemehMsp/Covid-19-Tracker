@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/fragmentHome"
-        android:name="com.github.fatemehmsp.covid_19tracker.HomeFragment"
+        android:name="com.github.fatemehmsp.covid_19tracker.view.HomeFragment"
         android:label="@string/fragment_home"
         tools:layout="@layout/fragment_home"
         />

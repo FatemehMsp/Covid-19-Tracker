@@ -1,8 +1,9 @@
-package com.github.fatemehmsp.covid_19tracker
+package com.github.fatemehmsp.covid_19tracker.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
+import com.github.fatemehmsp.covid_19tracker.R
 
 class MainActivity : AppCompatActivity() {
 

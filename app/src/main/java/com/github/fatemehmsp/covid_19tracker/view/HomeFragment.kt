@@ -1,10 +1,11 @@
-package com.github.fatemehmsp.covid_19tracker
+package com.github.fatemehmsp.covid_19tracker.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.github.fatemehmsp.covid_19tracker.R
 
 /**
  * Created by Fatemeh Movassaghpour on 4/6/2020.
