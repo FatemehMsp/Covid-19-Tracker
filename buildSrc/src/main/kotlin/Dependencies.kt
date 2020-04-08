@@ -73,12 +73,14 @@ object Network {
     private object Versions {
         const val retrofitVersion = "2.6.2"
         const val okHttpVersion = "4.2.2"
+        const val pagingVersion = "1.0.1"
     }
     //network
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofitVersion}"
     const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttpVersion}"
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:4.0.1}"
     const val okHttpLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpVersion}"
+    const val paging = "android.arch.paging:runtime:${Versions.pagingVersion}"
 }
 
 object MoshiLibs {

@@ -1,51 +1,49 @@
 package com.github.fatemehmsp.covid_19tracker.viewModel
 
-import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
 import com.github.fatemehmsp.covid_19tracker.model.CountryModel
-import com.github.fatemehmsp.covid_19tracker.network.ApiResponse
-import com.github.fatemehmsp.covid_19tracker.repository.CountryRepositoryImp
-import com.github.fatemehmsp.covid_19tracker.util.Output
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import com.github.fatemehmsp.covid_19tracker.repository.CountryDataSource
+import com.github.fatemehmsp.covid_19tracker.repository.CountryDataSourceFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.cancel
 import javax.inject.Inject
 
 /**
  * Created by Fatemeh Movassaghpour on 4/7/2020.
  */
-class HomeViewModel @Inject constructor(private val countryRepositoryImp: CountryRepositoryImp) :
-    BaseViewModel() {
+class HomeViewModel @Inject constructor(
+    private val countryDataSourceFactory: CountryDataSourceFactory
+    , private val scope: CoroutineScope
+) :
+    ViewModel() {
 
     private val TAG: String = HomeViewModel::class.java.simpleName
 
-    val countries: MutableLiveData<MutableList<CountryModel>> by lazy { MutableLiveData<MutableList<CountryModel>>() }
+    var countries: LiveData<PagedList<CountryModel>>? = null
     val loadingProgressBar: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>(false) }
 
 
-    suspend fun getCountryList() {
-        loadingProgressBar.postValue(true)
-        val result = withContext(Dispatchers.IO) {
-            countryRepositoryImp.getAllCountry(
-                LIMIT,
-                PAGE
-            )
-        }
-        showResult(result)
+    val pagedListConfig = PagedList.Config.Builder()
+        .setEnablePlaceholders(true)
+        .setPageSize(CountryDataSource.LIMIT)
+        .build()
+
+    init {
+        getData()
     }
 
-    private fun showResult(result: Output<ApiResponse>) {
-        when (result) {
-            is Output.Success -> {
-                loadingProgressBar.postValue(false)
-                countries.postValue(result.output.data?.rows)
-            }
-            is Output.Error ->
-                Log.i(TAG, result.exception.message)
-        }
+    private fun getData() {
+        countries = LivePagedListBuilder(countryDataSourceFactory, pagedListConfig)
+            .build()
     }
 
-    companion object {
-        const val PAGE = 1
-        const val LIMIT = 10
+    override fun onCleared() {
+        super.onCleared()
+        scope.cancel()
     }
+
 }

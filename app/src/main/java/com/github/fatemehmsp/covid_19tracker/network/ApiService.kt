@@ -1,6 +1,7 @@
 package com.github.fatemehmsp.covid_19tracker.network
 
 import kotlinx.coroutines.Deferred
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -13,6 +14,6 @@ interface ApiService {
     fun getCountryList(
         @Query("limit") limit: Int,
         @Query("page") page: Int
-    ): Deferred<ApiResponse>
+    ): Response<ApiResponse>
 
 }

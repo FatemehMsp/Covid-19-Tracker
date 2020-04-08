@@ -64,5 +64,6 @@ dependencies {
     implementation(Network.okHttp)
     implementation(Network.okHttpLogging)
 
+    implementation(Network.paging)
 
 }
