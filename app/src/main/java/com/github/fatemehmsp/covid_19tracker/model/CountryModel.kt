@@ -1,27 +1,29 @@
 package com.github.fatemehmsp.covid_19tracker.model
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 /**
  * Created by Fatemeh Movassaghpour on 4/7/2020.
  */
 data class CountryModel(
     var country: String,
-    @Json(name = "total_cases")
+    @SerializedName("total_cases")
     var totalCase: String,
-    @Json(name = "new_cases")
+    @SerializedName("new_cases")
     var newCase: String,
-    @Json(name = "total_deaths")
+    @SerializedName("total_deaths")
     var totalDeaths: String,
-    @Json(name = "new_deaths")
+    @SerializedName("new_deaths")
     var newDeaths: String,
-    @Json(name = "total_recovered")
+    @SerializedName("total_recovered")
     var totalRecovered: String,
-    @Json(name = "active_cases")
+    @SerializedName("active_cases")
     var activeCase: String,
-    @Json(name = "serious_critical")
+    @SerializedName("serious_critical")
     var seriousCritical: String,
-    @Json(name = "cases_per_mill_pop")
+    @SerializedName("cases_per_mill_pop")
     var casesPerMillPop: String,
     var flag: String
 )

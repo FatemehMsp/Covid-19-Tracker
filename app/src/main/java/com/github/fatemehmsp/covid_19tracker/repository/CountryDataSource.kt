@@ -37,11 +37,11 @@ class CountryDataSource @Inject constructor(
 
     private fun fetchData(page: Int, callback: (List<CountryModel>) -> Unit) {
         scope.launch {
-            Log.e("123456asdf", "check rest")
-            when (val response = countryRepositoryImp.getAllCountry(
+            val response = countryRepositoryImp.getAllCountry(
                 page,
                 LIMIT
-            )) {
+            )
+            when (response) {
                 is Resource.Success ->
                     callback(response.data?.data?.rows!!)
                 is Resource.Error ->

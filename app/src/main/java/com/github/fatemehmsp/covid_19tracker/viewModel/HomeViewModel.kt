@@ -29,13 +29,11 @@ class HomeViewModel @Inject constructor(
     val loadingProgressBar: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>(false) }
 
 
-/*    init {
-        Log.i(TAG,"startttttttt")
+    init {
         getData()
-    }*/
+    }
 
-    fun getData() {
-        Log.i("123456asd", "startttttttt")
+    private fun getData() {
         val pagedListConfig = PagedList.Config.Builder()
             .setEnablePlaceholders(true)
             .setPageSize(CountryDataSource.LIMIT)

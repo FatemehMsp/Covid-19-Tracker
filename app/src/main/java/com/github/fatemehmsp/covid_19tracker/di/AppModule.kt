@@ -10,6 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -23,19 +24,18 @@ class AppModule {
     @Singleton
     @Provides
     fun provideRetrofit(
-        moshiConverterFactory: MoshiConverterFactory,
+        gsonConverterFactory: GsonConverterFactory,
         okHttpClient: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(moshiConverterFactory)
-            //.addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .addConverterFactory(gsonConverterFactory)
             .client(okHttpClient)
             .build()
     }
 
     @Provides
-    fun provideMoshiConverterFactory() = MoshiConverterFactory.create()
+    fun provideGsonConverterFactory() = GsonConverterFactory.create()
 
     @Provides
     fun provideOkHttpClient(): OkHttpClient {

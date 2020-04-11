@@ -81,6 +81,8 @@ object Network {
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:4.0.1}"
     const val okHttpLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpVersion}"
     const val paging = "android.arch.paging:runtime:${Versions.pagingVersion}"
+    const val gsonRetrofit = "com.squareup.retrofit2:converter-gson:${Versions.retrofitVersion}"
+    const val gson = "com.google.code.gson:gson:2.8.2"
 }
 
 object MoshiLibs {

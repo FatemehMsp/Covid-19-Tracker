@@ -15,7 +15,6 @@ class CountryDataSourceFactory @Inject constructor(private val countryDataSource
     val countryDataSourceLiveData: MutableLiveData<CountryDataSource> by lazy { MutableLiveData<CountryDataSource>() }
 
     override fun create(): DataSource<Int, CountryModel> {
-        Log.e("123456asdf", "check rest")
         countryDataSourceLiveData.postValue(countryDataSource)
         return countryDataSource
     }

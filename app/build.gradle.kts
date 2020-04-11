@@ -58,7 +58,10 @@ dependencies {
     kapt(DaggerLibs.daggerCompiler)
 
     implementation(MoshiLibs.moshiRetrofit)
-    implementation(MoshiLibs.moshi)
+    implementation(MoshiLibs.moshiKotlin)
+
+    implementation(Network.gson)
+    implementation(Network.gsonRetrofit)
 
 
     implementation(Network.retrofit)

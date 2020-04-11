@@ -46,10 +46,8 @@ class HomeFragment : Fragment() {
 
         setupDagger()
         viewModel = ViewModelProvider(activity!!, viewModelFactory).get(HomeViewModel::class.java)
-        viewModel.getData()
-        viewModel.countries?.observe(activity!!, Observer {
-            Log.e("checksize", it.size.toString())
-        })
+        //viewModel.getData()
+        viewModel.countries?.observe(activity!!, Observer {})
     }
 
     private fun setupDagger() {
