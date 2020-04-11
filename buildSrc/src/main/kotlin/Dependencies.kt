@@ -116,6 +116,7 @@ object Ui {
         const val navigationComponentVersion = "2.3.0-alpha03"
         const val lottieVersion = "3.0.0"
         const val recyclerViewItemDecorationVersion = "1.0.0"
+        const val glideVersion = "4.11.0"
     }
     //Ui
     const val roundCardView =
@@ -123,6 +124,8 @@ object Ui {
     const val recyclerViewtemDecoration =
         "com.bignerdranch.android:simple-item-decoration:${Versions.recyclerViewItemDecorationVersion}"
     const val lottie = "com.airbnb.android:lottie:${Versions.lottieVersion}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
+    const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glideVersion}"
     const val bottomBar = "com.aurelhubert:ahbottomnavigation:${Versions.bottomNavVersion}"
     const val circularImageView = "de.hdodenhof:circleimageview:${Versions.circularImageView}"
     const val navigationFragment =

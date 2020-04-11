@@ -1,4 +1,4 @@
-package com.github.fatemehmsp.covid_19tracker.view
+package com.github.fatemehmsp.covid_19tracker.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

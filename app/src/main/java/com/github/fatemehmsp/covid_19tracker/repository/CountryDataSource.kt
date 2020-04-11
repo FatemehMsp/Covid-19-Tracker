@@ -38,8 +38,8 @@ class CountryDataSource @Inject constructor(
     private fun fetchData(page: Int, callback: (List<CountryModel>) -> Unit) {
         scope.launch {
             val response = countryRepositoryImp.getAllCountry(
-                page,
-                LIMIT
+                LIMIT,
+                page
             )
             when (response) {
                 is Resource.Success ->

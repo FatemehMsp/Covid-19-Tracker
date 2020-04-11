@@ -53,6 +53,8 @@ dependencies {
 
     implementation(Ui.navigationFragment)
     implementation(Ui.navigationUi)
+    implementation(Ui.glide)
+    kapt(Ui.glideCompiler)
 
     implementation(DaggerLibs.dagger)
     kapt(DaggerLibs.daggerCompiler)

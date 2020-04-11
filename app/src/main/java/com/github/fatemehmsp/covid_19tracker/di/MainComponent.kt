@@ -1,9 +1,6 @@
 package com.github.fatemehmsp.covid_19tracker.di
 
-import com.github.fatemehmsp.covid_19tracker.App
-import com.github.fatemehmsp.covid_19tracker.view.HomeFragment
-import dagger.BindsInstance
-import dagger.Component
+import com.github.fatemehmsp.covid_19tracker.view.fragment.HomeFragment
 import dagger.Subcomponent
 
 /**
