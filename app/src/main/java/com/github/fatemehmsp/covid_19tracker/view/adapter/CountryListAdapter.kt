@@ -2,13 +2,10 @@ package com.github.fatemehmsp.covid_19tracker.view.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.github.fatemehmsp.covid_19tracker.databinding.RowCountryListBinding
 import com.github.fatemehmsp.covid_19tracker.model.CountryModel
@@ -19,21 +16,21 @@ import com.github.fatemehmsp.covid_19tracker.model.CountryModel
 class CountryListAdapter :
     PagedListAdapter<CountryModel, CountryListAdapter.ViewHolder>(COUNTRY_COMPARATOR) {
 
-    private lateinit var binding: RowCountryListBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        binding = RowCountryListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding.root)
+        return ViewHolder(
+            RowCountryListBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.apply {
             getItem(position)?.let {
-                name.text = it.country
-                newCase.text = it.newCase
-                loadImage(flag, it.flag)
+                holder.onBind(it)
             }
-        }
     }
 
     private fun loadImage(flag: AppCompatImageView, url: String) {
@@ -43,10 +40,14 @@ class CountryListAdapter :
             .into(flag)
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val flag: AppCompatImageView = binding.countryFlag
-        val name: TextView = binding.countryName
-        val newCase: TextView = binding.countryNewCase
+    inner class ViewHolder(private val binding: RowCountryListBinding) :
+        BaseViewHolder<CountryModel>(binding) {
+
+        override fun onBind(country: CountryModel) {
+            binding.countryName.text = country.country
+            binding.countryNewCase.text = country.newCase
+            loadImage(binding.countryFlag, country.flag)
+        }
     }
 
     companion object {
