@@ -1,12 +1,14 @@
 package com.github.fatemehmsp.covid_19tracker.viewModel
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.github.fatemehmsp.covid_19tracker.di.scope.CoroutineScropeIO
 import com.github.fatemehmsp.covid_19tracker.model.CountryModel
+import com.github.fatemehmsp.covid_19tracker.network.ApiResponse
+import com.github.fatemehmsp.covid_19tracker.repository.Resource
 import com.github.fatemehmsp.covid_19tracker.repository.country.CountryDataSource
 import com.github.fatemehmsp.covid_19tracker.repository.country.CountryDataSourceFactory
 import kotlinx.coroutines.CoroutineScope
@@ -25,7 +27,7 @@ class HomeViewModel @Inject constructor(
     private val TAG: String = HomeViewModel::class.java.simpleName
 
     var countries: LiveData<PagedList<CountryModel>>? = null
-    val loadingProgressBar: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>(false) }
+    var networkState: LiveData<Resource<ApiResponse>>? =null
 
 
     init {
@@ -35,10 +37,14 @@ class HomeViewModel @Inject constructor(
     private fun getData() {
         val pagedListConfig = PagedList.Config.Builder()
             .setEnablePlaceholders(true)
-            .setPageSize(CountryDataSource.LIMIT)
+            .setPageSize(PAGE_SIZE)
             .build()
-        countries = LivePagedListBuilder(countryDataSourceFactory, pagedListConfig)
+       countries =  LivePagedListBuilder(countryDataSourceFactory, pagedListConfig)
             .build()
+
+        networkState = Transformations.switchMap(
+            countryDataSourceFactory.countryDataSourceLiveData,
+            CountryDataSource::networkState)
     }
 
     override fun onCleared() {
@@ -46,4 +52,7 @@ class HomeViewModel @Inject constructor(
         scope.cancel()
     }
 
+    companion object {
+        const val PAGE_SIZE = 10
+    }
 }

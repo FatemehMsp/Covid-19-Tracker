@@ -1,9 +1,10 @@
 package com.github.fatemehmsp.covid_19tracker.repository.country
 
-import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
 import com.github.fatemehmsp.covid_19tracker.di.scope.CoroutineScropeIO
 import com.github.fatemehmsp.covid_19tracker.model.CountryModel
+import com.github.fatemehmsp.covid_19tracker.network.ApiResponse
 import com.github.fatemehmsp.covid_19tracker.repository.Resource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -16,6 +17,9 @@ class CountryDataSource @Inject constructor(
     private val countryRepositoryImp: CountryRepositoryImp,
     @CoroutineScropeIO private val scope: CoroutineScope
 ) : PageKeyedDataSource<Int, CountryModel>() {
+
+    var networkState = MutableLiveData<Resource<ApiResponse>>()
+
     override fun loadInitial(
         params: LoadInitialParams<Int>,
         callback: LoadInitialCallback<Int, CountryModel>
@@ -29,6 +33,7 @@ class CountryDataSource @Inject constructor(
     }
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, CountryModel>) {
+        networkState.postValue(Resource.Loading(null))
         fetchData(params.key) {
             callback.onResult(it, params.key + 1)
         }
@@ -43,23 +48,19 @@ class CountryDataSource @Inject constructor(
                 page
             )
             when (response) {
-                is Resource.Success ->
+                is Resource.Success ->{
+                    networkState.postValue(Resource.Success(ApiResponse()))
                     callback(response.data?.data?.rows!!)
+                }
                 is Resource.Error ->
-                    postError(response.message!!)
+                    networkState.postValue(Resource.Error(response.message!!))
 
             }
         }
     }
 
-    private fun postError(message: String) {
-        Log.e("An error happened: ", message)
-        // TODO network error handling
-        //networkState.postValue(NetworkState.FAILED)
-    }
-
     companion object {
         const val PAGE = 1
-        const val LIMIT = 10
+        const val LIMIT = 15
     }
 }
