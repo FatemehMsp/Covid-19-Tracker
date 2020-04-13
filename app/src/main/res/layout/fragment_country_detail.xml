@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/detailBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_chevron_left_black_24dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/detailFlag"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailBack"
+        />
+
+    <!--TotalCase-->
+    <TextView
+        android:id="@+id/detailTotalCaseTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/total_case"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailFlag"
+        />
+
+    <TextView
+        android:id="@+id/detailTotalCase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/detailTotalCaseTxt"
+        app:layout_constraintTop_toBottomOf="@id/detailFlag"
+        tools:text="@string/total_case"
+        />
+
+    <!--NewCase-->
+    <TextView
+        android:id="@+id/detailNewCaseTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/new_case"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailTotalCase"
+        />
+
+    <TextView
+        android:id="@+id/detailNewCase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/detailTotalCaseTxt"
+        app:layout_constraintTop_toBottomOf="@id/detailTotalCaseTxt"
+        tools:text="@string/total_case"
+        />
+
+
+    <!--TotalDeaths-->
+    <TextView
+        android:id="@+id/detailTotalDeathTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/total_deaths"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailNewCaseTxt"
+        />
+
+    <TextView
+        android:id="@+id/detailTotalDeaths"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/detailTotalDeathTxt"
+        app:layout_constraintTop_toBottomOf="@id/detailNewCase"
+        tools:text="@string/total_case"
+        />
+
+    <!--NewDeaths-->
+    <TextView
+        android:id="@+id/detailNewDeathsTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/new_deaths"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailTotalDeathTxt"
+        />
+
+    <TextView
+        android:id="@+id/detailNewDeath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/detailNewDeathsTxt"
+        app:layout_constraintTop_toBottomOf="@id/detailTotalDeaths"
+        tools:text="@string/total_case"
+        />
+
+
+    <!--TotalRecovered-->
+    <TextView
+        android:id="@+id/detailTotalRecoveredTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/total_recovered"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailNewDeathsTxt"
+        />
+
+    <TextView
+        android:id="@+id/detailTotalRecovered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/detailTotalRecoveredTxt"
+        app:layout_constraintTop_toBottomOf="@id/detailNewDeathsTxt"
+        tools:text="@string/total_case"
+        />
+
+
+    <!--seriousCritical-->
+    <TextView
+        android:id="@+id/detailSeriousCriticalTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/serious_critical"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailTotalRecoveredTxt"
+        />
+
+    <TextView
+        android:id="@+id/detailSeriousCritical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/detailSeriousCriticalTxt"
+        app:layout_constraintTop_toBottomOf="@id/detailTotalRecovered"
+        tools:text="@string/total_case"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
