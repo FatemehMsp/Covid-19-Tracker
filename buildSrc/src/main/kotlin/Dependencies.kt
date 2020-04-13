@@ -58,7 +58,8 @@ object TestLibraries {
 
 object ArchComponent {
     private object Versions {
-        const val archComponentVersion = "4.12"
+        const val lifecycleVersion = "2.2.0"
+        const val archComponentVersion = "2.1.0"
     }
     //architecture comps
     const val lifecycleRuntime =
@@ -67,6 +68,13 @@ object ArchComponent {
         "androidx.lifecycle:lifecycle-extensions:${Versions.archComponentVersion}"
     const val lifecycleCompiler =
         "androidx.lifecycle:lifecycle-compiler:${Versions.archComponentVersion}"
+    const val lifecycleViewModel =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycleVersion}"
+    const val lifecycleLiveData =
+        "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleVersion}"
+    const val lifecycleSaveState =
+        "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.lifecycleVersion}"
+
 }
 
 object Network {

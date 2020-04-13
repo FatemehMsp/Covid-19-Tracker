@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,7 +13,6 @@ import com.github.fatemehmsp.covid_19tracker.App
 import com.github.fatemehmsp.covid_19tracker.databinding.FragmentHomeBinding
 import com.github.fatemehmsp.covid_19tracker.view.adapter.CountryListAdapter
 import com.github.fatemehmsp.covid_19tracker.viewModel.HomeViewModel
-import com.github.fatemehmsp.covid_19tracker.viewModel.MainViewModelFactory
 import javax.inject.Inject
 
 /**
@@ -21,8 +21,10 @@ import javax.inject.Inject
 class HomeFragment : Fragment() {
 
     @Inject
-    lateinit var viewModelFactory: MainViewModelFactory
-    private lateinit var viewModel: HomeViewModel
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private val viewModel by viewModels<HomeViewModel>{ viewModelFactory }
+
     private var _binding: FragmentHomeBinding? = null
     private var adapter = CountryListAdapter()
     private val binding
@@ -45,7 +47,6 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupDagger()
-        viewModel = ViewModelProvider(activity!!, viewModelFactory).get(HomeViewModel::class.java)
 
         binding.mainList.layoutManager =
             LinearLayoutManager(activity!!, LinearLayoutManager.VERTICAL, false)

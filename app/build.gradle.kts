@@ -31,6 +31,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    (kotlinOptions as org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions).apply {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
     viewBinding {
         isEnabled = true
     }
@@ -49,7 +53,10 @@ dependencies {
     implementation(Support.recyclerView)
 
     implementation(Kotlin.coroutines)
-    implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0")
+
+    implementation(ArchComponent.lifecycleExtension)
+    implementation(ArchComponent.lifecycleViewModel)
+    implementation(ArchComponent.lifecycleLiveData)
 
     implementation(Ui.navigationFragment)
     implementation(Ui.navigationUi)
