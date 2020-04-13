@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Covid-19 Tracker</string>
     <string name="live_report">Live Report</string>
+
     <string name="fragment_home">fragmentHome</string>
+    <string name="fragment_country_detail">fragmentCountryDetail</string>
+
+
     <string name="total_case">TotalCase : </string>
     <string name="new_case">NewCase : </string>
     <string name="total_deaths">TotalDeaths : </string>
