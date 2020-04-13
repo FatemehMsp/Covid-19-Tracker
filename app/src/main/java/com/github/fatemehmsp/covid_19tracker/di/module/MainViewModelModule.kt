@@ -1,7 +1,8 @@
-package com.github.fatemehmsp.covid_19tracker.di
+package com.github.fatemehmsp.covid_19tracker.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.github.fatemehmsp.covid_19tracker.di.ViewModelKey
 import com.github.fatemehmsp.covid_19tracker.viewModel.HomeViewModel
 import com.github.fatemehmsp.covid_19tracker.viewModel.MainViewModelFactory
 import dagger.Binds

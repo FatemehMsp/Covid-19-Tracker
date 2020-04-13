@@ -2,7 +2,7 @@ package com.github.fatemehmsp.covid_19tracker.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.github.fatemehmsp.covid_19tracker.di.MainScope
+import com.github.fatemehmsp.covid_19tracker.di.scope.MainScope
 import javax.inject.Inject
 import javax.inject.Provider
 

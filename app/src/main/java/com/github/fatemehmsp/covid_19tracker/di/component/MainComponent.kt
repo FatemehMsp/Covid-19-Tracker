@@ -1,5 +1,7 @@
-package com.github.fatemehmsp.covid_19tracker.di
+package com.github.fatemehmsp.covid_19tracker.di.component
 
+import com.github.fatemehmsp.covid_19tracker.di.module.MainViewModelModule
+import com.github.fatemehmsp.covid_19tracker.di.scope.MainScope
 import com.github.fatemehmsp.covid_19tracker.view.fragment.HomeFragment
 import dagger.Subcomponent
 

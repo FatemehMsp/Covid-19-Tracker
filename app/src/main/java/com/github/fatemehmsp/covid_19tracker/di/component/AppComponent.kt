@@ -1,7 +1,7 @@
-package com.github.fatemehmsp.covid_19tracker.di
+package com.github.fatemehmsp.covid_19tracker.di.component
 
 import android.content.Context
-import com.github.fatemehmsp.covid_19tracker.App
+import com.github.fatemehmsp.covid_19tracker.di.module.AppModule
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton

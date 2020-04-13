@@ -1,4 +1,4 @@
-package com.github.fatemehmsp.covid_19tracker.di
+package com.github.fatemehmsp.covid_19tracker.di.component
 
 import dagger.Module
 

@@ -1,7 +1,7 @@
 package com.github.fatemehmsp.covid_19tracker
 
 import android.app.Application
-import com.github.fatemehmsp.covid_19tracker.di.AppComponent
+import com.github.fatemehmsp.covid_19tracker.di.component.AppComponent
 import com.github.fatemehmsp.covid_19tracker.di.DaggerAppComponent
 
 /**

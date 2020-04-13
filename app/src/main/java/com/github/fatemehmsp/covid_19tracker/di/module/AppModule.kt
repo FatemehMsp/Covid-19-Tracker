@@ -1,5 +1,6 @@
-package com.github.fatemehmsp.covid_19tracker.di
+package com.github.fatemehmsp.covid_19tracker.di.module
 
+import com.github.fatemehmsp.covid_19tracker.di.scope.CoroutineScropeIO
 import com.github.fatemehmsp.covid_19tracker.network.ApiService
 import dagger.Module
 import dagger.Provides

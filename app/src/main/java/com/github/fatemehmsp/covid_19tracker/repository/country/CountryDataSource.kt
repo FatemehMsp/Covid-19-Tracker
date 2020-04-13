@@ -1,9 +1,10 @@
-package com.github.fatemehmsp.covid_19tracker.repository
+package com.github.fatemehmsp.covid_19tracker.repository.country
 
 import android.util.Log
 import androidx.paging.PageKeyedDataSource
-import com.github.fatemehmsp.covid_19tracker.di.CoroutineScropeIO
+import com.github.fatemehmsp.covid_19tracker.di.scope.CoroutineScropeIO
 import com.github.fatemehmsp.covid_19tracker.model.CountryModel
+import com.github.fatemehmsp.covid_19tracker.repository.Resource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject

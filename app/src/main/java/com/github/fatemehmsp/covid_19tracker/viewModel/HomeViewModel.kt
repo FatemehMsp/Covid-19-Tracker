@@ -1,15 +1,14 @@
 package com.github.fatemehmsp.covid_19tracker.viewModel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.github.fatemehmsp.covid_19tracker.di.CoroutineScropeIO
+import com.github.fatemehmsp.covid_19tracker.di.scope.CoroutineScropeIO
 import com.github.fatemehmsp.covid_19tracker.model.CountryModel
-import com.github.fatemehmsp.covid_19tracker.repository.CountryDataSource
-import com.github.fatemehmsp.covid_19tracker.repository.CountryDataSourceFactory
+import com.github.fatemehmsp.covid_19tracker.repository.country.CountryDataSource
+import com.github.fatemehmsp.covid_19tracker.repository.country.CountryDataSourceFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.cancel
 import javax.inject.Inject

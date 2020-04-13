@@ -1,9 +1,9 @@
-package com.github.fatemehmsp.covid_19tracker.repository
+package com.github.fatemehmsp.covid_19tracker.repository.country
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import com.github.fatemehmsp.covid_19tracker.model.CountryModel
+import com.github.fatemehmsp.covid_19tracker.repository.country.CountryDataSource
 import javax.inject.Inject
 
 /**

@@ -1,7 +1,9 @@
-package com.github.fatemehmsp.covid_19tracker.repository
+package com.github.fatemehmsp.covid_19tracker.repository.country
 
 import com.github.fatemehmsp.covid_19tracker.network.ApiResponse
 import com.github.fatemehmsp.covid_19tracker.network.ApiService
+import com.github.fatemehmsp.covid_19tracker.repository.BaseDataSource
+import com.github.fatemehmsp.covid_19tracker.repository.Resource
 import javax.inject.Inject
 
 /**
