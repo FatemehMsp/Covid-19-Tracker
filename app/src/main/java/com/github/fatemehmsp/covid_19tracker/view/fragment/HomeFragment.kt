@@ -9,13 +9,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.fatemehmsp.covid_19tracker.App
+import com.github.fatemehmsp.covid_19tracker.R
 import com.github.fatemehmsp.covid_19tracker.databinding.FragmentHomeBinding
+import com.github.fatemehmsp.covid_19tracker.model.CountryModel
 import com.github.fatemehmsp.covid_19tracker.repository.Resource
 import com.github.fatemehmsp.covid_19tracker.view.adapter.CountryListAdapter
 import com.github.fatemehmsp.covid_19tracker.viewModel.HomeViewModel
 import javax.inject.Inject
+
 
 /**
  * Created by Fatemeh Movassaghpour on 4/6/2020.
@@ -28,7 +32,7 @@ class HomeFragment : Fragment() {
     private val viewModel by viewModels<HomeViewModel>{ viewModelFactory }
 
     private var _binding: FragmentHomeBinding? = null
-    private var adapter = CountryListAdapter()
+    private lateinit var adapter : CountryListAdapter
     private val binding
         get() = _binding!!
 
@@ -41,6 +45,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -50,9 +55,12 @@ class HomeFragment : Fragment() {
 
         setupDagger()
 
+        adapter = CountryListAdapter{item -> countryClicked(item)}
+
         binding.mainList.layoutManager =
             LinearLayoutManager(activity!!, LinearLayoutManager.VERTICAL, false)
         binding.mainList.adapter = adapter
+
 
         viewModel.countries?.observe(activity!!, Observer {
                 adapter.submitList(it)
@@ -70,6 +78,13 @@ class HomeFragment : Fragment() {
                 }
             }
         })
+
+    }
+
+    private fun countryClicked(item: CountryModel) {
+        /*val nav1 = NavArgument.Builder().setDefaultValue(item).build()
+        findNavController().graph.addArgument("countryDetail",nav1)*/
+        findNavController().navigate(R.id.home_to_detail)
     }
 
     private fun hideProgress() {

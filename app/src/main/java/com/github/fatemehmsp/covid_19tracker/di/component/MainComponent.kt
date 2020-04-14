@@ -12,7 +12,6 @@ import dagger.Subcomponent
 @Subcomponent(modules = [MainViewModelModule::class])
 interface MainComponent {
 
-    // Factory to create instances of RegistrationComponent
     @Subcomponent.Factory
     interface Factory {
         fun create(): MainComponent

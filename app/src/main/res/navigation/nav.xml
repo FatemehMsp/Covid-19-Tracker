@@ -30,12 +30,6 @@
         <action
             android:id="@+id/action_fragmentCountryDetail_to_fragmentHome"
             app:destination="@id/fragmentHome" />
-
-        <argument
-            android:name="countryDetail"
-            app:argType="CountryModel"
-            app:nullable="false"
-            />
     </fragment>
 
 </navigation>

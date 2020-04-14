@@ -13,9 +13,8 @@ import com.github.fatemehmsp.covid_19tracker.model.CountryModel
 /**
  * Created by Fatemeh Movassaghpour on 4/11/2020.
  */
-class CountryListAdapter :
+class CountryListAdapter(val adapterOnClick : (CountryModel) -> Unit) :
     PagedListAdapter<CountryModel, CountryListAdapter.ViewHolder>(COUNTRY_COMPARATOR) {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -47,6 +46,10 @@ class CountryListAdapter :
             binding.countryName.text = country.country
             binding.countryNewCase.text = country.newCase
             loadImage(binding.countryFlag, country.flag)
+
+            binding.root.setOnClickListener {
+               adapterOnClick(country)
+            }
         }
     }
 
@@ -60,6 +63,5 @@ class CountryListAdapter :
                 newItem == oldItem
         }
     }
-
 
 }
