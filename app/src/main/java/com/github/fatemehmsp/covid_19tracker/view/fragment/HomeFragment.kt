@@ -81,8 +81,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun countryClicked(item: CountryModel) {
-        /*val nav1 = NavArgument.Builder().setDefaultValue(item).build()
-        findNavController().graph.addArgument("countryDetail",nav1)*/
         val arge = HomeFragmentDirections.homeToDetail(item)
         findNavController().navigate(arge)
     }

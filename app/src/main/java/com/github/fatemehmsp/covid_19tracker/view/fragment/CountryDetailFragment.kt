@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.github.fatemehmsp.covid_19tracker.databinding.FragmentCountryDetailBinding
@@ -40,7 +41,9 @@ class CountryDetailFragment : Fragment(){
         val country = args.countrySelected
         setData(country)
 
-        binding.detailBack.setOnClickListener {}
+        binding.detailBack.setOnClickListener {
+            NavHostFragment.findNavController(this).navigateUp()
+        }
     }
 
     private fun setData(country: CountryModel) {
