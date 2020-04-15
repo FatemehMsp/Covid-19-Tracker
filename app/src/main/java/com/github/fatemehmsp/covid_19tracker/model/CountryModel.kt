@@ -1,12 +1,13 @@
 package com.github.fatemehmsp.covid_19tracker.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import kotlinx.android.parcel.Parcelize
 
 /**
  * Created by Fatemeh Movassaghpour on 4/7/2020.
  */
+@Parcelize
 data class CountryModel(
     var country: String,
     @SerializedName("total_cases")
@@ -26,4 +27,4 @@ data class CountryModel(
     @SerializedName("cases_per_mill_pop")
     var casesPerMillPop: String,
     var flag: String
-)
+) : Parcelable

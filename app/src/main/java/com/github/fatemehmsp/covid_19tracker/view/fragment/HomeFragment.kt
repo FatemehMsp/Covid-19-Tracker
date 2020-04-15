@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.fatemehmsp.covid_19tracker.App
-import com.github.fatemehmsp.covid_19tracker.R
 import com.github.fatemehmsp.covid_19tracker.databinding.FragmentHomeBinding
 import com.github.fatemehmsp.covid_19tracker.model.CountryModel
 import com.github.fatemehmsp.covid_19tracker.repository.Resource
@@ -62,11 +61,11 @@ class HomeFragment : Fragment() {
         binding.mainList.adapter = adapter
 
 
-        viewModel.countries?.observe(activity!!, Observer {
+        viewModel.countries?.observe(viewLifecycleOwner, Observer {
                 adapter.submitList(it)
         })
 
-        viewModel.networkState?.observe(activity!!, Observer {
+        viewModel.networkState?.observe(viewLifecycleOwner, Observer {
             hideProgress()
             hideProgressHorizontal()
             when(it){
@@ -84,7 +83,8 @@ class HomeFragment : Fragment() {
     private fun countryClicked(item: CountryModel) {
         /*val nav1 = NavArgument.Builder().setDefaultValue(item).build()
         findNavController().graph.addArgument("countryDetail",nav1)*/
-        findNavController().navigate(R.id.home_to_detail)
+        val arge = HomeFragmentDirections.homeToDetail(item)
+        findNavController().navigate(arge)
     }
 
     private fun hideProgress() {

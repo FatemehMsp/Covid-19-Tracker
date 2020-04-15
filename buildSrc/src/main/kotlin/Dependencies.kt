@@ -140,4 +140,6 @@ object Ui {
         "androidx.navigation:navigation-fragment-ktx:${Versions.navigationComponentVersion}"
     const val navigationUi =
         "androidx.navigation:navigation-ui-ktx:${Versions.navigationComponentVersion}"
+    const val navigationSafeArge =
+        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigationComponentVersion}"
 }

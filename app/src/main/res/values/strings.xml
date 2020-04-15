@@ -6,10 +6,10 @@
     <string name="fragment_country_detail">fragmentCountryDetail</string>
 
 
-    <string name="total_case">TotalCase : </string>
-    <string name="new_case">NewCase : </string>
-    <string name="total_deaths">TotalDeaths : </string>
-    <string name="new_deaths">NewDeaths : </string>
-    <string name="total_recovered">"TotalRecovered : "</string>
-    <string name="serious_critical">"SeriousCritical : "</string>
+    <string name="total_case">TotalCase :</string>
+    <string name="new_case">NewCase :</string>
+    <string name="total_deaths">TotalDeaths :</string>
+    <string name="new_deaths">NewDeaths :</string>
+    <string name="total_recovered">TotalRecovered :</string>
+    <string name="serious_critical">SeriousCritical :</string>
 </resources>

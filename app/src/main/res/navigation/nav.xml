@@ -27,6 +27,10 @@
         android:label="@string/fragment_country_detail"
         tools:layout="@layout/fragment_country_detail"
         >
+        <argument
+            android:name="countrySelected"
+            app:argType="com.github.fatemehmsp.covid_19tracker.model.CountryModel" />
+
         <action
             android:id="@+id/action_fragmentCountryDetail_to_fragmentHome"
             app:destination="@id/fragmentHome" />

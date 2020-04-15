@@ -3,6 +3,7 @@ plugins{
     id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinAndroidExtensions)
     id("kotlin-kapt")
+    id("androidx.navigation.safeargs")
 }
 
 android {

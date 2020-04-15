@@ -13,7 +13,7 @@ import dagger.multibindings.IntoMap
  * Created by Fatemeh Movassaghpour on 4/8/2020.
  */
 @Module
-abstract class MainViewModelModule {
+interface MainViewModelModule {
 
     @Binds
     @IntoMap
